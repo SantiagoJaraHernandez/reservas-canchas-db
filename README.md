@@ -16,14 +16,7 @@ reservas-canchas-db/
 │ └── modelo-entidad-relacion.png
 │
 └── README.md
----
-
-## 📜 Script Inicial de Base de Datos
-
-El script completo se encuentra en:
-
-scripts/database.sql
-
+--
 
 ### Tablas creadas:
 
@@ -68,3 +61,4 @@ scripts/database.sql
 ## 🛠️ Motor de Base de Datos
 
 PostgreSQL
+
