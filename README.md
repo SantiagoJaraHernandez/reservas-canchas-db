@@ -7,35 +7,18 @@ para el sistema de reservas de canchas.
 
 ## 📂 Estructura del Proyecto
 
-reservas-canchas-db/
-│
-├── scripts/
-│ └── database.sql
-│
-├── model/
-│ └── modelo-entidad-relacion.png
-│
-└── README.md
-
+- reservas-canchas-db/
+  - scripts/
+    - database.sql
+  - model/
+    - modelo-entidad-relacion.png
+  - README.md
 
 ---
 
-## 🖼 Modelo Entidad-Relación
+## 📜 Estructura de la Base de Datos
 
-El siguiente diagrama representa la estructura de la base de datos:
-
-![Modelo Entidad Relación](model/modelo-entidad-relacion.png)
-
----
-
-## 📜 Script Inicial de Base de Datos
-
-El script completo se encuentra en:
-
-scripts/database.sql
-
-
-### Tablas creadas:
+El sistema está compuesto por las siguientes tablas:
 
 ### 👤 Usuarios
 - id_usuario (PK)
