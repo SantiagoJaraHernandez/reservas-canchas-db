@@ -16,7 +16,24 @@ reservas-canchas-db/
 │ └── modelo-entidad-relacion.png
 │
 └── README.md
---
+
+
+---
+
+## 🖼 Modelo Entidad-Relación
+
+El siguiente diagrama representa la estructura de la base de datos:
+
+![Modelo Entidad Relación](model/modelo-entidad-relacion.png)
+
+---
+
+## 📜 Script Inicial de Base de Datos
+
+El script completo se encuentra en:
+
+scripts/database.sql
+
 
 ### Tablas creadas:
 
@@ -61,4 +78,3 @@ reservas-canchas-db/
 ## 🛠️ Motor de Base de Datos
 
 PostgreSQL
-
