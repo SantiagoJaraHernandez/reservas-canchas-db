@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="nelson">
+        <createTable tableName="usuarios">
+            <column name="id" type="BIGINT" autoIncrement="true" primaryKey="true"/>
+            <column name="nombre" type="VARCHAR(100)"/>
+            <column name="email" type="VARCHAR(150)"/>
+            <column name="fecha_creacion" type="TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="nelson">
+        <createTable tableName="roles">
+            <column name="id" type="BIGINT" autoIncrement="true" primaryKey="true"/>
+            <column name="nombre" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="3" author="nelson">
+        <createTable tableName="usuario_roles">
+            <column name="id_usuario" type="BIGINT"/>
+            <column name="id_rol" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Tabla canchas -->
+    <changeSet id="4" author="nelson">
+        <createTable tableName="canchas">
+            <column name="id" type="BIGINT" autoIncrement="true" primaryKey="true"/>
+            <column name="nombre" type="VARCHAR(100)"/>
+            <column name="tipo" type="VARCHAR(50)"/>
+            <column name="estado" type="VARCHAR(30)"/>
+            <column name="fecha_creacion" type="TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Tabla reservas -->
+    <changeSet id="5" author="nelson">
+        <createTable tableName="reservas">
+            <column name="id" type="BIGINT" autoIncrement="true" primaryKey="true"/>
+            <column name="id_usuario" type="BIGINT"/>
+            <column name="id_cancha" type="BIGINT"/>
+            <column name="fecha" type="DATE"/>
+            <column name="hora_inicio" type="TIME"/>
+            <column name="hora_fin" type="TIME"/>
+            <column name="estado" type="VARCHAR(30)"/>
+            <column name="fecha_creacion" type="TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Tabla pagos -->
+    <changeSet id="6" author="nelson">
+        <createTable tableName="pagos">
+            <column name="id" type="BIGINT" autoIncrement="true" primaryKey="true"/>
+            <column name="id_reserva" type="BIGINT"/>
+            <column name="monto" type="NUMERIC(10,2)"/>
+            <column name="metodo_pago" type="VARCHAR(30)"/>
+            <column name="estado_pago" type="VARCHAR(30)"/>
+            <column name="fecha_pago" type="TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Tabla notificaciones -->
+    <changeSet id="7" author="nelson">
+        <createTable tableName="notificaciones">
+            <column name="id" type="BIGINT" autoIncrement="true" primaryKey="true"/>
+            <column name="id_usuario" type="BIGINT"/>
+            <column name="tipo" type="VARCHAR(30)"/>
+            <column name="mensaje" type="TEXT"/>
+            <column name="estado_envio" type="VARCHAR(30)"/>
+            <column name="fecha_envio" type="TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Tabla reportes_generados -->
+    <changeSet id="8" author="nelson">
+        <createTable tableName="reportes_generados">
+            <column name="id" type="BIGINT" autoIncrement="true" primaryKey="true"/>
+            <column name="tipo_reporte" type="VARCHAR(50)"/>
+            <column name="generado_por" type="BIGINT"/>
+            <column name="fecha_generacion" type="TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
