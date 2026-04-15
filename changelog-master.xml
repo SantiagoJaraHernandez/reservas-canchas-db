@@ -1,6 +1,10 @@
-changeLogFile=changelog-master.xml
-url=jdbc:postgresql://localhost:5432/reservasDistribuidos
-username=postgres
-password=tu_password
-driver=org.postgresql.Driver
-classpath=lib/postgresql-42.7.10.jar
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <include file="changelog-01-create-tables.xml"/>
+    <include file="changelog-02-initial-data.xml"/>
+</databaseChangeLog>
