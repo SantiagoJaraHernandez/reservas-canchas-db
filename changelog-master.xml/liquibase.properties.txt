@@ -1,6 +1,0 @@
-changeLogFile=changelog-master.xml
-url=jdbc:postgresql://localhost:5432/reservasDistribuidos
-username=postgres
-password=tu_password
-driver=org.postgresql.Driver
-classpath=lib/postgresql-42.7.10.jar
