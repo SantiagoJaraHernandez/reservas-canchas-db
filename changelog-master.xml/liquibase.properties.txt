@@ -4,4 +4,3 @@ username=postgres
 password=tu_password
 driver=org.postgresql.Driver
 classpath=lib/postgresql-42.7.10.jar
-
