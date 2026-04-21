@@ -7,4 +7,12 @@
 
     <include file="changelog-01-create-tables.xml"/>
     <include file="changelog-02-initial-data.xml"/>
+    
+    
+    <include file="db/changelog/auth/01-usuarios.xml"/>
+    <include file="db/changelog/auth/02-roles.xml"/>
+
+    
+    <include file="db/changelog/reservas/03-canchas.xml"/>
+    <include file="db/changelog/reservas/04-reservas.xml"/>
 </databaseChangeLog>
