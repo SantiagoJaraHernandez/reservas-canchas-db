@@ -1,39 +1,67 @@
-# Sistema de Reservas - Base de Datos
+# ⚽ Sistema Distribuido de Reservas de Canchas
 
-## Arquitectura
-
-El sistema está dividido en dos microservicios:
-
-### 🔐 Auth
-- usuarios
-- roles
-- usuario_roles
-
-### 📅 Reservas
-- canchas
-- reservas
+Proyecto de base de datos para una plataforma web de reservas deportivas utilizando PostgreSQL + Liquibase.
 
 ---
 
-## Tecnologías
+# 📌 Arquitectura del Sistema
+
+El sistema está dividido en dos microservicios principales:
+
+## 🔐 Microservicio Auth
+Encargado de:
+
+- Usuarios
+- Roles
+- Permisos
+- Sesiones
+- Seguridad
+
+---
+
+## 📅 Microservicio Reservas
+Encargado de:
+
+- Canchas
+- Reservas
+- Pagos
+- Facturación
+- Promociones
+- Disponibilidad
+- Auditoría
+- Notificaciones
+
+---
+
+# 🛠 Tecnologías Utilizadas
 
 - PostgreSQL
 - Liquibase
-- GitFlow (dev → qa → main)
+- Docker
+- GitFlow
+- Spring Boot
+- React
+- TailwindCSS
 
 ---
 
-## Liquibase
+# 📂 Estructura del Proyecto
 
-Se utiliza para versionar la base de datos mediante changelogs:
-
-- db.changelog-master.xml
-- módulos por microservicio
-
----
-
-## Flujo de ramas
-
-- develop → desarrollo
-- qa → pruebas
-- main → producción
+```plaintext
+reservas-canchas-db
+│
+├── scripts/
+│   └── bk_reservas.sql
+│
+├── model/
+│   ├── MER.png
+│   ├── ERD.png
+│   └── diagrama-clases.png
+│
+├── changelog-master.xml
+├── changelog-01-create-tables.xml
+├── changelog-02-initial-data.xml
+│
+├── liquibase.properties
+│
+└── README.md
