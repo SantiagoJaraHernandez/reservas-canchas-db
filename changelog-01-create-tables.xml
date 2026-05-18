@@ -17,6 +17,432 @@
         </createTable>
     </changeSet>
 
+    <!-- ================================================= -->
+<!-- TABLA permisos -->
+<!-- ================================================= -->
+
+<changeSet id="10" author="nelson">
+    <createTable tableName="permisos">
+
+        <column name="id" type="BIGINT" autoIncrement="true">
+            <constraints primaryKey="true" nullable="false"/>
+        </column>
+
+        <column name="nombre" type="VARCHAR(100)">
+            <constraints nullable="false"/>
+        </column>
+
+        <column name="descripcion" type="TEXT"/>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA rol_permisos -->
+<!-- ================================================= -->
+
+<changeSet id="11" author="nelson">
+    <createTable tableName="rol_permisos">
+
+        <column name="id_rol" type="BIGINT">
+            <constraints nullable="false"/>
+        </column>
+
+        <column name="id_permiso" type="BIGINT">
+            <constraints nullable="false"/>
+        </column>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA sesiones -->
+<!-- ================================================= -->
+
+<changeSet id="12" author="nelson">
+    <createTable tableName="sesiones">
+
+        <column name="id" type="BIGINT" autoIncrement="true">
+            <constraints primaryKey="true"/>
+        </column>
+
+        <column name="id_usuario" type="BIGINT"/>
+
+        <column name="token" type="TEXT"/>
+
+        <column name="fecha_inicio" type="TIMESTAMP"/>
+
+        <column name="fecha_expiracion" type="TIMESTAMP"/>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA sedes -->
+<!-- ================================================= -->
+
+<changeSet id="13" author="nelson">
+    <createTable tableName="sedes">
+
+        <column name="id" type="BIGINT" autoIncrement="true">
+            <constraints primaryKey="true"/>
+        </column>
+
+        <column name="nombre" type="VARCHAR(100)"/>
+
+        <column name="direccion" type="VARCHAR(200)"/>
+
+        <column name="ciudad" type="VARCHAR(100)"/>
+
+        <column name="telefono" type="VARCHAR(20)"/>
+
+        <column name="estado" type="VARCHAR(30)"/>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA tipos_cancha -->
+<!-- ================================================= -->
+
+<changeSet id="14" author="nelson">
+    <createTable tableName="tipos_cancha">
+
+        <column name="id" type="BIGINT" autoIncrement="true">
+            <constraints primaryKey="true"/>
+        </column>
+
+        <column name="nombre" type="VARCHAR(50)"/>
+
+        <column name="descripcion" type="TEXT"/>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA horarios_disponibles -->
+<!-- ================================================= -->
+
+<changeSet id="15" author="nelson">
+    <createTable tableName="horarios_disponibles">
+
+        <column name="id" type="BIGINT" autoIncrement="true">
+            <constraints primaryKey="true"/>
+        </column>
+
+        <column name="id_cancha" type="BIGINT"/>
+
+        <column name="dia_semana" type="VARCHAR(20)"/>
+
+        <column name="hora_apertura" type="TIME"/>
+
+        <column name="hora_cierre" type="TIME"/>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA mantenimientos -->
+<!-- ================================================= -->
+
+<changeSet id="16" author="nelson">
+    <createTable tableName="mantenimientos">
+
+        <column name="id" type="BIGINT" autoIncrement="true">
+            <constraints primaryKey="true"/>
+        </column>
+
+        <column name="id_cancha" type="BIGINT"/>
+
+        <column name="motivo" type="TEXT"/>
+
+        <column name="fecha_inicio" type="DATE"/>
+
+        <column name="fecha_fin" type="DATE"/>
+
+        <column name="estado" type="VARCHAR(30)"/>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA pagos -->
+<!-- ================================================= -->
+
+<changeSet id="17" author="nelson">
+    <createTable tableName="pagos">
+
+        <column name="id" type="BIGINT" autoIncrement="true">
+            <constraints primaryKey="true"/>
+        </column>
+
+        <column name="id_reserva" type="BIGINT"/>
+
+        <column name="monto" type="NUMERIC(10,2)"/>
+
+        <column name="metodo_pago" type="VARCHAR(50)"/>
+
+        <column name="estado_pago" type="VARCHAR(30)"/>
+
+        <column name="fecha_pago" type="TIMESTAMP"/>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA facturas -->
+<!-- ================================================= -->
+
+<changeSet id="18" author="nelson">
+    <createTable tableName="facturas">
+
+        <column name="id" type="BIGINT" autoIncrement="true">
+            <constraints primaryKey="true"/>
+        </column>
+
+        <column name="id_pago" type="BIGINT"/>
+
+        <column name="numero_factura" type="VARCHAR(50)"/>
+
+        <column name="subtotal" type="NUMERIC(10,2)"/>
+
+        <column name="impuestos" type="NUMERIC(10,2)"/>
+
+        <column name="total" type="NUMERIC(10,2)"/>
+
+        <column name="fecha_factura" type="TIMESTAMP"/>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA promociones -->
+<!-- ================================================= -->
+
+<changeSet id="19" author="nelson">
+    <createTable tableName="promociones">
+
+        <column name="id" type="BIGINT" autoIncrement="true">
+            <constraints primaryKey="true"/>
+        </column>
+
+        <column name="nombre" type="VARCHAR(100)"/>
+
+        <column name="descripcion" type="TEXT"/>
+
+        <column name="porcentaje_descuento" type="NUMERIC(5,2)"/>
+
+        <column name="fecha_inicio" type="DATE"/>
+
+        <column name="fecha_fin" type="DATE"/>
+
+        <column name="estado" type="VARCHAR(30)"/>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA reserva_promocion -->
+<!-- ================================================= -->
+
+<changeSet id="20" author="nelson">
+    <createTable tableName="reserva_promocion">
+
+        <column name="id_reserva" type="BIGINT"/>
+
+        <column name="id_promocion" type="BIGINT"/>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA calificaciones -->
+<!-- ================================================= -->
+
+<changeSet id="21" author="nelson">
+    <createTable tableName="calificaciones">
+
+        <column name="id" type="BIGINT" autoIncrement="true">
+            <constraints primaryKey="true"/>
+        </column>
+
+        <column name="id_usuario" type="BIGINT"/>
+
+        <column name="id_cancha" type="BIGINT"/>
+
+        <column name="puntuacion" type="INTEGER"/>
+
+        <column name="comentario" type="TEXT"/>
+
+        <column name="fecha_calificacion" type="TIMESTAMP"/>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA imagenes_cancha -->
+<!-- ================================================= -->
+
+<changeSet id="22" author="nelson">
+    <createTable tableName="imagenes_cancha">
+
+        <column name="id" type="BIGINT" autoIncrement="true">
+            <constraints primaryKey="true"/>
+        </column>
+
+        <column name="id_cancha" type="BIGINT"/>
+
+        <column name="url_imagen" type="TEXT"/>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA historial_reservas -->
+<!-- ================================================= -->
+
+<changeSet id="23" author="nelson">
+    <createTable tableName="historial_reservas">
+
+        <column name="id" type="BIGINT" autoIncrement="true">
+            <constraints primaryKey="true"/>
+        </column>
+
+        <column name="id_reserva" type="BIGINT"/>
+
+        <column name="accion" type="VARCHAR(50)"/>
+
+        <column name="descripcion" type="TEXT"/>
+
+        <column name="fecha" type="TIMESTAMP"/>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA notificaciones -->
+<!-- ================================================= -->
+
+<changeSet id="24" author="nelson">
+    <createTable tableName="notificaciones">
+
+        <column name="id" type="BIGINT" autoIncrement="true">
+            <constraints primaryKey="true"/>
+        </column>
+
+        <column name="id_usuario" type="BIGINT"/>
+
+        <column name="mensaje" type="TEXT"/>
+
+        <column name="tipo" type="VARCHAR(30)"/>
+
+        <column name="estado_envio" type="VARCHAR(30)"/>
+
+        <column name="fecha_envio" type="TIMESTAMP"/>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA perfiles_usuario -->
+<!-- ================================================= -->
+
+<changeSet id="25" author="nelson">
+    <createTable tableName="perfiles_usuario">
+
+        <column name="id" type="BIGINT" autoIncrement="true">
+            <constraints primaryKey="true"/>
+        </column>
+
+        <column name="id_usuario" type="BIGINT"/>
+
+        <column name="telefono" type="VARCHAR(20)"/>
+
+        <column name="direccion" type="VARCHAR(200)"/>
+
+        <column name="foto_perfil" type="TEXT"/>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA estadisticas_reservas -->
+<!-- ================================================= -->
+
+<changeSet id="26" author="nelson">
+    <createTable tableName="estadisticas_reservas">
+
+        <column name="id" type="BIGINT" autoIncrement="true">
+            <constraints primaryKey="true"/>
+        </column>
+
+        <column name="fecha" type="DATE"/>
+
+        <column name="total_reservas" type="INTEGER"/>
+
+        <column name="ingresos_totales" type="NUMERIC(10,2)"/>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA auditoria -->
+<!-- ================================================= -->
+
+<changeSet id="27" author="nelson">
+    <createTable tableName="auditoria">
+
+        <column name="id" type="BIGINT" autoIncrement="true">
+            <constraints primaryKey="true"/>
+        </column>
+
+        <column name="tabla_afectada" type="VARCHAR(100)"/>
+
+        <column name="accion" type="VARCHAR(50)"/>
+
+        <column name="usuario_accion" type="VARCHAR(100)"/>
+
+        <column name="fecha_accion" type="TIMESTAMP"/>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA configuraciones -->
+<!-- ================================================= -->
+
+<changeSet id="28" author="nelson">
+    <createTable tableName="configuraciones">
+
+        <column name="id" type="BIGINT" autoIncrement="true">
+            <constraints primaryKey="true"/>
+        </column>
+
+        <column name="clave" type="VARCHAR(100)"/>
+
+        <column name="valor" type="TEXT"/>
+
+    </createTable>
+</changeSet>
+
+<!-- ================================================= -->
+<!-- TABLA deportes -->
+<!-- ================================================= -->
+
+<changeSet id="29" author="nelson">
+    <createTable tableName="deportes">
+
+        <column name="id" type="BIGINT" autoIncrement="true">
+            <constraints primaryKey="true"/>
+        </column>
+
+        <column name="nombre" type="VARCHAR(100)"/>
+
+        <column name="descripcion" type="TEXT"/>
+
+    </createTable>
+</changeSet>
+
     <!-- Tabla roles -->
     <changeSet id="2" author="nelson">
         <createTable tableName="roles">
